@@ -1,0 +1,31 @@
+.nav1
+{
+	padding-top: 1rem!important;
+    padding-bottom: 1rem;
+    background-color: #212529;
+	color: white;
+}
+.nav1 .navbar-brand{
+	color: white;
+}
+.nav1 .nav-link:hover{
+	background-color: #3490dc;
+	
+
+}
+.nav1 .nav-link{
+	color: white !important;
+	transition: all 0.2s;
+}
+.card-header{
+	background-color: #212529;
+	color: white;
+}
+
+ .card{
+	background-color: rgba(255, 255, 255, 0.219) !important;
+}
+.form-control {
+	width: 210% !important;
+	display: inline-block;
+}
