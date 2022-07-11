@@ -9,7 +9,7 @@
             <div class="card">
 
                 <div class="card-header">Dashboard</div>
-
+                @if ( Auth::user()->is_admin==1)
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -34,13 +34,33 @@
 
                    @endforeach
                    @php
+                  echo(  ' <div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+
+        <th scope="col">in progress task</th>
+        <th scope="col">done task</th>
+        <th scope="col">feild task</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+
+        <td scope="row">'.$x.'</td>
+        <td scope="row">'.$y.'</td>
+        <td scope="row">'.$f.'</td>
+
+      </tr>
+    </tbody>
+  </table>
+  </div>');
                     echo('<div class="x" id="x">'.$x.'</div>');
                     echo('<div class="y" id="y">'.$y.'</div>');
                     echo('<div class="f" id="f">'.$f.'</div>');
 
-                    echo('<div  >in progress task:'.$x.'</div>');
-                    echo('<div  >done task:'.$y.'</div>');
-                    echo('<div  >feild task:'.$f.'</div>');
+
                      $t=$f+$y+$x;
                     echo('<div class="f" id="all">'.$t.'</div>');
 
@@ -88,4 +108,5 @@ chart.render();
         </div>
     </div>
 </div>
+@endif
 @endsection

@@ -21,7 +21,7 @@ class TodoController extends Controller
         $users = User::all();
 
         $list = Todo::with('user');
-
+        $list = $list->paginate(8);
 /*        if($request->user)
             $list = $list->where('user_id', $request->user);*/
 
@@ -29,32 +29,35 @@ class TodoController extends Controller
         {
 
             if($request->status != -1)
-            {
-                $list = $list->where('status', $request->status);
 
-            }
+            $list=Todo::with('user')->where('status' ,$request->status)->paginate(9)->appends('status', $request->status);
+
+
+
 
         }
 
         if($request->user)
-            if(!in_array(0, $request->user))
-                $list = $list->whereIn('user_id', $request->user);
+            if(!in_array(0, $request->user)){
+                $list = Todo::with('user')->whereIn('user_id', $request->user)->paginate(8)->appends('user_id', $request->user);
+            }
+        if($request->description){
 
-        if($request->description)
-            $list = $list->where('description', 'like', '%'.$request->description.'%');
+            $list = Todo::with('user')->where('description', 'like', '%'.$request->description.'%')->paginate(8)->appends('description', 'like', '%'.$request->description.'%');
 
+        }
 
-        if($request->name)
+        if($request->name){
             $list = $list->where('name', 'like', '%'.$request->name.'%');
 
 /*        dd($list->toSql());*/
         $list = $list->orderby('user_id', 'desc')->orderby('created_at', 'desc');
-        $list = $list->paginate(8);
-
+        $list = $list->paginate(8)->appends('name', 'like', '%'.$request->name.'%');
+        }
 
         return view('todo.index', compact('list', 'users'));
-    }
 
+    }
 
     public function show($id, Request $request)
     {
@@ -134,7 +137,7 @@ class TodoController extends Controller
 
     public function add()
     {
-        $users = User::all()->paginate(9);
+        $users = User::all();
     	return view('todo.add', compact('users'));
     }
 
@@ -160,7 +163,7 @@ class TodoController extends Controller
 
     public function mytasks()
     {
-        $list = Todo::with('user')->where('user_id', '=', Auth::user()->id)->paginate(8);
+        $list = Todo::with('user')->where('user_id', '=', Auth::user()->id)->paginate(8)->appends('user_id', '=', Auth::user()->id);
 
         return view('dashboard.mytasks', compact('list'));
     }

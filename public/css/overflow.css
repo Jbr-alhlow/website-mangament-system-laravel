@@ -1,7 +1,6 @@
 body{
-	background-image: url(../assets/img/pexels-cottonbro-5082559.jpg);
-	background-repeat: no-repeat;
-	background-size: cover;
+    background-color: rgba(245, 245, 245, 0.747);
+    overflow-x: hidden;
 }
 html {
     --scrollbarBG: black;

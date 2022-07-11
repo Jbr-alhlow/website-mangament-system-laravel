@@ -21,6 +21,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 
+
     </head>
     <body id="page-top">
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top " id="mainNav">
@@ -36,6 +37,13 @@
                         @if (Auth::user())
                         <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">home</a></li>
                         @endif
+                        @if (Auth::user())
+                        @if ( Auth::user()->is_admin==1)
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('prodact.prodact') }}">prodact-mangment</a>
+                        </li>
+                        @endif
+                         @endif
                         <li class="nav-item"><a class="nav-link" href="/">welcome</a></li>
 
                         <li class="nav-item"><a class="nav-link" href="/prodact">prodact</a></li>
@@ -99,7 +107,7 @@
 
               <img class="card-img-top" src='{{$prodact->img}}' alt="Card image" style="width:220px; height:160px;margin-left:auto;margin-right:auto">
             <div class="card-body">
-              <h4 class="card-title">{{$prodact->name}}</h4>
+              <h4 class="card-title">{{$prodact->name}} {{$prodact->id}}</h4>
               <p class="card-text">{{$prodact->discripe}}</p><p class="price">{{{$prodact->price}}}</p>
               <a href="#" class="btn btn-primary">See Profile</a>
             </div>

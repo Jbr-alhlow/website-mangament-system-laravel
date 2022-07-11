@@ -69,6 +69,10 @@
                             @if(Auth::user()->is_admin)
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('user.index') }}">Users</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('prodact.prodact') }}">prodact-mangment</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('todo.index') }}">Todo</a>
                             </li>

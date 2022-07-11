@@ -49,7 +49,7 @@ Route::post('/users/store', 'UserController@store')->name('user.store')->middlew
 
 Route::get('/todo/index', 'TodoController@index')->name('todo.index')->middleware(['auth', 'is_admin']);
 
-Route::get('/home', 'HomeController@index1')->name('home')->middleware(['auth', 'is_admin']);
+Route::get('/home', 'HomeController@index1')->name('home')->middleware('auth');
 
 
 
@@ -113,5 +113,13 @@ Route::post('/store_image', 'SiteController@store_image')->name('store_image')->
 
 /*Route::get('/ddd', 'TodoController@ddd')->name('todo.ddd');*/
 Route::get('/prodact', 'ProdactController@prodact')->name('prodact.index');
+Route::get('/prodactmange', 'ProdactController@prodactmange')->name('prodact.prodact')->middleware(['auth', 'is_admin']);
+Route::get('/prodact/show/{id}', 'ProdactController@show')->name('prodact.show')->middleware(['auth', 'is_admin']);
+Route::get('/prodact/edit/{id}', 'ProdactController@edit')->name('prodact.edit')->middleware(['auth', 'is_admin']);
+Route::post('/prodact/update/{id}', 'ProdactController@update')->name('prodact.update')->middleware(['auth', 'is_admin']);
+Route::get('/prodact/add', 'ProdactController@add')->name('prodact.add')->middleware(['auth', 'is_admin']);
+Route::post('/prodact/store', 'ProdactController@store')->name('prodact.store')->middleware(['auth', 'is_admin']);
+
+Route::get('/prodact/delete/{id}', 'ProdactController@delete')->name('prodact.delete')->middleware(['auth', 'is_admin']);
 
 

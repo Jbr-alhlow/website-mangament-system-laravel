@@ -1,4 +1,5 @@
 @extends('layouts.app')
+<link href="{{ asset('css/overflow.css') }}" rel="stylesheet">
 
 @section('content')
 <div class="container">
@@ -38,7 +39,7 @@
   <div class="form-group">
     <label >New Password Confirmation</label>
     <input  value="{{ old('password_confirmation') }}" name="password_confirmation" type="password" class="form-control" >
-  </div>  
+  </div>
   <div class="form-check">
   </div>
   <button type="submit" class="btn btn-primary">Create</button>
