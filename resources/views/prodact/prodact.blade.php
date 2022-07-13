@@ -1,6 +1,7 @@
 
 @extends('layouts.app')
 <link href="{{ asset('css/prodact.css') }}" rel="stylesheet">
+<link href="{{ asset('css/overflow.css') }}" rel="stylesheet">
 @section('content')
 
 
@@ -21,7 +22,7 @@
         </tr>
       </thead>
       <tbody>
-
+        @if($prodact_list->total()!=0);
             @foreach($prodact_list as $prodact)
             <tr>
           <td>{{$prodact->id}} </td>
@@ -53,7 +54,7 @@
         </div>
         </div>
     </div>
-
+    @endif
     <div id="id01" class="modal">
         <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
         <form class="modal-content" action="/action_page.php">

@@ -23,6 +23,7 @@
   </thead>
   <tbody>
     @php $x = 1; @endphp
+    @if($users_list->total()!=0);
     @foreach($users_list as $user)
     <tr>
         <td>{{ $x++ }}</td>
@@ -60,5 +61,5 @@
       </div>
     </form>
   </div>
-
+@endif
 @endsection

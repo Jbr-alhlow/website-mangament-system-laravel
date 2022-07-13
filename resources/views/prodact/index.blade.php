@@ -63,9 +63,8 @@
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
-                <a href="#">
-                    Start Bootstrap
-                </a>
+
+filter
             </li>
             <li>
 
@@ -93,10 +92,23 @@
 
         </ul>
     </div>
+
+
+
     <!-- /#sidebar-wrapper -->
     <!-- Page Content -->
     <div id="page-content-wrapper"class="row form1">
+
+
+<form action="">
+          <div class="input-group">
+            <input type="text" class="form-control rounded" value="{{ request('prodactsearch') }}" name="prodactsearch" placeholder="Search"  />
+            <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+          </div>
+        </form>
+          <hr>
         <div class="container-fluid row">
+@if($prodact_list->total()!=0)
 
         <div class="pagination pagination-centered">{{  $prodact_list->links() }}</div>
         @foreach($prodact_list as $prodact)
@@ -149,6 +161,6 @@
 
 <script src="{{ asset('js/arrow.js') }}"></script>
 
-
+@endif
 </body>
 </html>

@@ -29,12 +29,14 @@
   @csrf
   <div class="form-group">
     <label >Name</label>
-    <input value="{{ old('name') }}" name="name" type="text" class="form-control" >
+    <br>
+    <input value="{{ old('name') }}" name="name" type="text" class="form-control input-s" >
   </div>
 
   <div class="form-group">
     <label >User</label>
-  <select class="form-select form-control" name='user_id'>
+    <br>
+  <select class="form-select form-control input-s" name='user_id'>
     @foreach($users as $user)
     <option value="{{ $user->id }}" >{{ $user->name }}</option>
     @endforeach
@@ -43,7 +45,8 @@
 
   <div class="form-group">
     <label >Description</label>
-    	<textarea name="description" class="form-control">
+    <br>
+    	<textarea name="description" class="form-control input-s">
     {{ old('description') }}
     	</textarea>
   </div>

@@ -23,6 +23,7 @@
 	</tr>
 
 	@php $counter = 1; @endphp
+    @if($list->total()!=0);
 	@foreach ($list as $task)
 		<tr>
 		@if($task->status == 0)
@@ -76,4 +77,5 @@
 </table>
 </div>
 <div class="pagination pagination-centered">{{  $list->links() }}</div>
+@endif
 @endsection

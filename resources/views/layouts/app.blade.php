@@ -56,10 +56,7 @@
                                 </li>
                             @endif
                         @else
-                        <li class="nav-item">
-                            <a class="nav-link" href="/prodact">prodact</a>
 
-                        </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('home') }}">Home</a>
                             </li>
@@ -70,13 +67,23 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('user.index') }}">Users</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('prodact.prodact') }}">prodact-mangment</a>
-                            </li>
+
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('todo.index') }}">Todo</a>
                             </li>
                             @endif
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    prodact
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/prodact">prodact</a>
+                                  @if(Auth::user()->is_admin)
+                                  <a class="dropdown-item" href="{{ route('prodact.prodact') }}">prodact-mangment </a>
+                                  @endif
+                                </div>
+                              </li>
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

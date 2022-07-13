@@ -40,6 +40,7 @@ class TodoController extends Controller
         if($request->user)
             if(!in_array(0, $request->user)){
                 $list = Todo::with('user')->whereIn('user_id', $request->user)->paginate(8)->appends('user_id', $request->user);
+
             }
         if($request->description){
 

@@ -2,6 +2,7 @@
 
 @section('content')
 <link href="{{ asset('css/task.css') }}" rel="stylesheet">
+<link href="{{ asset('css/overflow.css') }}" rel="stylesheet">
 
 
 <div class="container">
@@ -18,6 +19,7 @@
 <form >
   <div class="form-group">
     <label >User</label>
+    <br>
   <select class="form-select form-control" name='user[]' multiple="">
   	<option value="0">All</option>
   	@if(request('user'))
@@ -42,7 +44,8 @@
 
   <div class="form-group">
     <label >description</label>
-    <input  value="{{ request('description') }}" name="description" type="text" class="form-control" >
+    <br>
+    <input  value="{{ request('description') }}" name="description" type="text" class="form-control input-s" >
   </div>
 
 
@@ -85,6 +88,7 @@
 	</tr>
 
 	@php $counter = 1; @endphp
+@if($list->total()!=0);
 	@foreach ($list as $item)
 	<tr>
 		<td>{{ $counter++ }}</td>
@@ -110,6 +114,7 @@
 		</td>
 	</tr>
 	@endforeach
+
 </table>
 
 </div>
@@ -130,5 +135,5 @@
     </div>
   </form>
 </div>
-
+@endif
 @endsection

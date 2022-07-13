@@ -24,21 +24,25 @@
 @endif
 
   @csrf
-  <div class="form-group">
+  <div class="form-group ">
     <label >Name</label>
-    <input  value="{{ old('name') }}" name="name" type="text" class="form-control" >
+    <br>
+    <input  value="{{ old('name') }}" name="name" type="text" class="form-control input-s" >
   </div>
   <div class="form-group">
     <label >Email address</label>
-    <input  value="{{ old('email') }}" name="email" type="email" class="form-control" >
+    <br>
+    <input  value="{{ old('email') }}" name="email" type="email" class="form-control input-s" >
   </div>
   <div class="form-group">
     <label >New Password</label>
-    <input  value="{{ old('password') }}" name="password" type="password" class="form-control" >
+    <br>
+    <input  value="{{ old('password') }}" name="password" type="password" class="form-control input-s" >
   </div>
   <div class="form-group">
     <label >New Password Confirmation</label>
-    <input  value="{{ old('password_confirmation') }}" name="password_confirmation" type="password" class="form-control" >
+    <br>
+    <input  value="{{ old('password_confirmation') }}" name="password_confirmation" type="password" class="form-control input-s" >
   </div>
   <div class="form-check">
   </div>

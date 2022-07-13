@@ -3,7 +3,7 @@
 @section('content')
 
 
-
+<link href="{{ asset('css/overflow.css') }}" rel="stylesheet">
 
 
 
@@ -36,15 +36,18 @@
   @csrf
   <div class="form-group">
     <label >Name</label>
-    <input value="{{ old('name') }}" name="name" type="text" class="form-control" >
+    <br>
+    <input value="{{ old('name') }}" name="name" type="text" class="form-control input-s" >
   </div>
 
   <div class="form-group">
     <label >price</label>
-    <input value="{{ old('price') }}" name="price" type="text" class="form-control" >
+    <br>
+    <input value="{{ old('price') }}" name="price" type="text" class="form-control input-s" >
   </div>
   <div class="form-group">
     <label >type</label>
+    <br>
    <select name="type" id="">
     <option value="shoe">shoe</option>
     <option value="computer">computer</option>
@@ -52,12 +55,14 @@
   </div>
   <div class="form-group">
     <label >img</label>
-    <input value="{{ old('img') }}" name="img" type="text" class="form-control" style="overflow: scroll" >
+    <br>
+    <input value="{{ old('img') }}" name="img" type="text" class="form-control input-s " style="overflow: scroll" >
   </div>
 
   <div class="form-group">
     <label >Description</label>
-    	<textarea name="discripe" class="form-control">
+    <br>
+    	<textarea name="discripe" class="form-control input-s">
     {{ old('discripe') }}
     	</textarea>
   </div>

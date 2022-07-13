@@ -34,10 +34,20 @@ class ProdactController extends Controller
         if(!is_null($request->type))
 
 {
-    $prodact_list = prodact::where('type','=' ,$request->type)->paginate(9)->appends('type',$request->type);
+
+    $prodact_list = prodact::where('type',$request->type)->paginate(9)->appends('type',$request->type);
 
 
 }
+else if(!is_null($request->prodactsearch))
+
+
+{
+
+    $prodact_list  = prodact::where('discripe', 'like', '%'.$request->prodactsearch.'%')->paginate(8)->appends('description', 'like', '%'.$request->prodactsearch.'%');
+
+}
+
     else{
 
 
